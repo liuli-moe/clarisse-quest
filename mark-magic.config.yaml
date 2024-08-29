@@ -1,0 +1,47 @@
+tasks:
+  - name: fetch
+    input:
+      name: '@mark-magic/plugin-ao3'
+      config:
+        url: https://forums.sufficientvelocity.com/threads/44100/
+        site: sufficientvelocity
+        cached: true
+    output:
+      name: '@mark-magic/plugin-local'
+      config:
+        path: ./books/en-US
+  - name: docs
+    input:
+      name: '@mark-magic/plugin-local'
+      config:
+        path: ./books/zh-CN
+    output:
+      name: '@mark-magic/plugin-docs'
+      config:
+        path: ./dist/docs
+        lang: zh-CN
+        sitemap:
+          hostname: https://pmas.liuli.moe
+        name: 飞向星空 机械幽魂
+        public: ./static
+        nav:
+          - text: GitHub
+            link: https://github.com/liuli-moe/pmas
+          - text: 社区
+            items:
+              - text: 原作
+                link: https://forums.sufficientvelocity.com/threads/44100/
+  - name: epub
+    input:
+      name: '@mark-magic/plugin-local'
+      config:
+        path: ./books/zh-CN
+    output:
+      name: '@mark-magic/plugin-epub'
+      config:
+        path: ./dist/epub/Puella Magi Adfligo Systema.epub
+        id: pmas
+        title: 飞向星空 机械幽魂
+        creator: Firnagzen
+        publisher: rxliuli
+        language: zh-CN
