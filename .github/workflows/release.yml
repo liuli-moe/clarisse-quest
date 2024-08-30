@@ -103,7 +103,7 @@ jobs:
           body: |
             Release epub for version ${{ steps.bump_version.outputs.new_version }}
           files: |
-            ./dist/epub/Puella Magi Adfligo Systema.epub
+            ./dist/epub/*.epub
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
